@@ -23,7 +23,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <None Include="app.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -69,6 +69,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(ProjectDir)\app.js $(ProjectDir)\..\ /y /f</PostBuildEvent>
+    <PostBuildEvent>IF EXIST $(ProjectDir)\app.js xcopy $(ProjectDir)\app.js $(ProjectDir)\..\ /y /f</PostBuildEvent>
   </PropertyGroup>
 </Project>
