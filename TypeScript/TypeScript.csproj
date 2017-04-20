@@ -19,7 +19,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="cloudscript.js" />
     <Content Include="index.html" />
     <Content Include="web.config" />
   </ItemGroup>
