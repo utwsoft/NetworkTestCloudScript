@@ -381,9 +381,34 @@ function GetGameList(args) {
     }
 }
 
+interface Environment {
+    Region: string;
+    AppVersion: string;
+    AppId: string;
+    TitleId: string;
+    CloudScriptVersion: number;
+    CloudScriptRevision: number;
+    PlayFabServerVersion: string;
+    WebhooksVersion: string;
+}
+
+interface CreationInfo {
+    Timestamp: string;
+    UserId: string;
+    Type: string;
+}
+
+interface GameCreationParams {
+    Env: Environment;
+    RoomOptions: string;
+    Creation: CreationInfo;
+    Actors: string; // this is wrong
+    NextActorNr: number;
+}
+
 function onGameCreated(args, timestamp) {
     "use strict";
-    var data: {[key: string]: string } = {};
+    var data: GameCreationParams;
     var msg = "";
     try {
         createSharedGroup(args.GameId);
@@ -462,13 +487,15 @@ handlers.RoomCreated = function (args) {
     }
 };
 
+
+
 // Triggered automatically when a player joins a Photon room
 handlers.RoomJoined = function (args) {
     "use strict";
     log.debug("Room Joined - Game: " + args.GameId + " PlayFabId: " + args.UserId);
 
     try {
-        var timestamp = getISOTimestamp(), data = {};
+        var timestamp = getISOTimestamp(), data: GameCreationParams = {};
         checkWebhookArgs(args, timestamp);
         data = getSharedGroupData(args.GameId);
         if (args.Type !== "Join") {
@@ -834,7 +861,7 @@ function processPlayerMove(playerMove) {
 // the player"s internal data which unlocks some new content for the player.
 handlers.unlockHighSkillContent = function (args, context) {
     var playerStatUpdatedEvent = context.playStreamEvent;
-    var request = {
+    var request: { [key: string], any } = {
         PlayFabId: currentPlayerId,
         Data: {
             "HighSkillContent": "true",
