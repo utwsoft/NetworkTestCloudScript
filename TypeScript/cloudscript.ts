@@ -398,11 +398,16 @@ interface CreationInfo {
     Type: string;
 }
 
+interface Actor {
+    UserId: string;
+    Inactive: boolean;
+}
+
 interface GameCreationParams {
     Env: Environment;
     RoomOptions: string;
     Creation: CreationInfo;
-    Actors: string; // this is wrong
+    Actors: { [key: number]: Actor }
     NextActorNr: number;
 }
 
