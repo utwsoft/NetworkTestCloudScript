@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -20,10 +20,6 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
-    <Content Include="PlayFabSdk\src\PlayFab\PlayFabAdminApi.js" />
-    <Content Include="PlayFabSdk\src\PlayFab\PlayFabClientApi.js" />
-    <Content Include="PlayFabSdk\src\PlayFab\PlayFabMatchmakerApi.js" />
-    <Content Include="PlayFabSdk\src\PlayFab\PlayFabServerApi.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -38,16 +34,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="PlayFabSdk\src\Typings\PlayFab\Playfab.d.ts" />
-    <TypeScriptCompile Include="PlayFabSdk\src\Typings\PlayFab\PlayFabAdminApi.d.ts" />
-    <TypeScriptCompile Include="PlayFabSdk\src\Typings\PlayFab\PlayFabClientApi.d.ts" />
-    <TypeScriptCompile Include="PlayFabSdk\src\Typings\PlayFab\PlayFabMatchmakerApi.d.ts" />
-    <TypeScriptCompile Include="PlayFabSdk\src\Typings\PlayFab\PlayFabServerApi.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\PlayFab\CloudScript.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\PlayFab\PlayStream.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="cloudscript.ts" />
+    <Compile Include="cloudscript.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

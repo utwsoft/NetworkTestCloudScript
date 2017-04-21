@@ -1,4 +1,4 @@
-namespace PlayStreamModels {
+declare namespace PlayStreamModels {
     interface IBasePlayStreamEvent {
         EventName: string;
     }
